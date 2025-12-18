@@ -1,59 +1,353 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🗺️ Peta Batas Wilayah Indonesia
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi peta interaktif untuk menampilkan batas wilayah provinsi dan kota/kabupaten di Indonesia menggunakan Laravel 12, Leaflet.js, dan OpenStreetMap.
 
-## About Laravel
+![Laravel](https://img.shields.io/badge/Laravel-12-red.svg)
+![PHP](https://img.shields.io/badge/PHP-8.2+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Daftar Isi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Tentang Project](#tentang-project)
+- [Fitur Utama](#fitur-utama)
+- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
+- [Persyaratan Sistem](#persyaratan-sistem)
+- [Instalasi](#instalasi)
+- [Konfigurasi](#konfigurasi)
+- [Cara Penggunaan](#cara-penggunaan)
+- [Struktur Project](#struktur-project)
+- [Daftar Provinsi yang Tersedia](#daftar-provinsi-yang-tersedia)
+- [Kontribusi](#kontribusi)
+- [Tentang Pembuat](#tentang-pembuat)
+- [Lisensi](#lisensi)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🎯 Tentang Project
 
-## Learning Laravel
+Aplikasi ini dibuat untuk memudahkan visualisasi batas-batas wilayah administratif di Indonesia. Dengan tampilan yang modern dan interaktif, kamu bisa melihat batas provinsi dan kota/kabupaten dengan mudah. Setiap provinsi memiliki warna pastel yang berbeda untuk memudahkan identifikasi, dan saat kamu hover atau klik pada area tertentu, akan muncul informasi detail.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Project ini cocok untuk:
+- 🔍 Eksplorasi peta Indonesia secara interaktif
+- 📚 Pembelajaran geografi Indonesia
+- 🎨 Referensi desain peta dengan Leaflet.js
+- 💼 Basis untuk aplikasi GIS (Geographic Information System)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Fitur Utama
 
-## Laravel Sponsors
+### 🗺️ Visualisasi Peta Interaktif
+- Peta Indonesia yang dapat di-zoom dan di-pan dengan smooth
+- Tampilan batas provinsi dengan garis putus-putus yang jelas
+- Batas kota/kabupaten dengan warna pastel yang konsisten per provinsi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🎨 Desain Modern
+- UI/UX dengan dominan warna purple/pink yang soft
+- Responsive design - bisa digunakan di desktop, tablet, dan mobile
+- Hover effects yang smooth saat mouse berada di atas wilayah
+- Popup informasi yang informatif dan mudah dibaca
 
-### Premium Partners
+### 🔍 Fitur Interaktif
+- **Hover Effect**: Saat mouse di atas wilayah, akan muncul popup dengan nama daerah
+- **Click to Zoom**: Klik pada provinsi atau kota untuk zoom otomatis ke area tersebut
+- **Search Functionality**: Fitur pencarian lokasi menggunakan OpenStreetMap Nominatim
+- **Real-time Info**: Informasi zoom level, koordinat, dan jumlah daerah yang dimuat
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 📊 Informasi yang Ditampilkan
+- Nama provinsi dan batas wilayahnya
+- Nama kota/kabupaten beserta provinsinya
+- Total jumlah kabupaten/kota yang sudah dimuat
+- Koordinat lokasi yang sedang dilihat
+- Level zoom saat ini
 
-## Contributing
+## 🛠️ Teknologi yang Digunakan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Backend
+- **Laravel 12** - PHP Framework modern untuk backend
+- **PHP 8.2+** - Bahasa pemrograman server-side
 
-## Code of Conduct
+### Frontend
+- **Leaflet.js** - Library JavaScript untuk peta interaktif
+- **OpenStreetMap** - Sumber data peta open source
+- **Tailwind CSS** - Framework CSS utility-first untuk styling
+- **Vite** - Build tool modern untuk frontend assets
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Data
+- **GeoJSON** - Format data geografis untuk batas wilayah
+- Data batas wilayah provinsi dan kota/kabupaten Indonesia
 
-## Security Vulnerabilities
+## 📦 Persyaratan Sistem
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Sebelum memulai, pastikan kamu sudah menginstall:
 
-## License
+- **PHP** >= 8.2
+- **Composer** (PHP dependency manager)
+- **Node.js** >= 18.x dan **NPM**
+- **Web Server** (Apache/Nginx) atau bisa pakai Laragon/XAMPP
+- **Database** (opsional, untuk fitur Laravel yang membutuhkan database)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🚀 Instalasi
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/edisuherlan/peta-batas-wilayah-indonesia-laravel.git
+cd peta-batas-wilayah-indonesia-laravel
+```
+
+### 2. Install Dependencies PHP
+
+```bash
+composer install
+```
+
+### 3. Install Dependencies JavaScript
+
+```bash
+npm install
+```
+
+### 4. Setup Environment File
+
+Copy file `.env.example` menjadi `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Kemudian generate application key:
+
+```bash
+php artisan key:generate
+```
+
+### 5. Build Frontend Assets
+
+```bash
+npm run build
+```
+
+Atau jika ingin development mode dengan hot reload:
+
+```bash
+npm run dev
+```
+
+### 6. Setup Storage Link (Opsional)
+
+Jika menggunakan storage untuk file upload:
+
+```bash
+php artisan storage:link
+```
+
+### 7. Jalankan Aplikasi
+
+Jika menggunakan Laragon/XAMPP, cukup akses melalui browser:
+```
+http://localhost/map
+```
+
+Atau jika menggunakan Laravel built-in server:
+
+```bash
+php artisan serve
+```
+
+Kemudian buka browser di: `http://localhost:8000`
+
+## ⚙️ Konfigurasi
+
+### File GeoJSON
+
+File GeoJSON untuk batas wilayah sudah disertakan di folder `public/geojson/`. File-file ini sudah diorganisir dengan format:
+
+```
+public/geojson/
+├── banten.geojson
+├── jakarta.geojson
+├── jawa_barat.geojson
+├── ...
+└── [nama_provinsi].geojson
+```
+
+Untuk kota/kabupaten, formatnya:
+```
+public/geojson/
+├── [prefix_provinsi]_[nama_kota].geojson
+└── contoh: banten_Cilegon.geojson
+```
+
+### Menambah Provinsi Baru
+
+Untuk menambah provinsi baru, ikuti langkah berikut:
+
+1. **Siapkan file GeoJSON** provinsi dan kota/kabupatennya
+2. **Copy file** ke folder `public/geojson/`
+3. **Update file** `resources/views/home.blade.php`:
+   - Tambahkan variabel layer untuk provinsi baru
+   - Tambahkan array kota/kabupaten
+   - Tambahkan array warna (pastel colors)
+   - Tambahkan fetch untuk memuat GeoJSON
+   - Update function `fitAllBounds()` untuk include provinsi baru
+
+Contoh struktur yang perlu ditambahkan:
+
+```javascript
+// Deklarasi variabel
+let provinsiBaruLayer = null;
+let provinsiBaruKotaLayers = [];
+let provinsiBaruKotaLoadedCount = 0;
+
+// Array kota/kabupaten
+const provinsiBaruKota = ['Kota 1', 'Kota 2', ...];
+
+// Array warna
+const provinsiBaruColors = [
+    { fill: '#warna1', stroke: '#warna2' },
+    // ... lebih banyak warna
+];
+
+// Fetch dan render GeoJSON
+fetch('/geojson/provinsi_baru.geojson')
+    .then(response => response.json())
+    .then(data => {
+        // ... kode untuk render
+    });
+```
+
+## 📖 Cara Penggunaan
+
+### Navigasi Peta
+
+1. **Zoom In/Out**: Gunakan scroll mouse atau tombol +/- di peta
+2. **Pan (Geser)**: Klik dan drag untuk memindahkan view peta
+3. **Click pada Wilayah**: Klik pada provinsi atau kota untuk auto-zoom ke area tersebut
+4. **Hover**: Arahkan mouse ke wilayah untuk melihat informasi popup
+
+### Mencari Lokasi
+
+1. Ketik nama lokasi di search box di bagian atas
+2. Tekan Enter
+3. Peta akan otomatis zoom ke lokasi yang dicari
+
+### Info Cards
+
+Di bawah peta ada 3 info card:
+- **Wilayah**: Menampilkan daftar provinsi yang sudah dimuat dan total kabupaten/kota
+- **Zoom Level**: Menampilkan level zoom saat ini
+- **Koordinat**: Menampilkan koordinat lokasi yang sedang dilihat
+
+## 📁 Struktur Project
+
+```
+peta-batas-wilayah-indonesia-laravel/
+├── app/                          # Folder aplikasi Laravel
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── HomeController.php  # Controller untuk halaman utama
+│   └── ...
+├── public/                       # Folder public (web root)
+│   ├── geojson/                 # File GeoJSON untuk batas wilayah
+│   │   ├── banten.geojson
+│   │   ├── jakarta.geojson
+│   │   └── ...
+│   ├── build/                   # File hasil build (auto-generated)
+│   └── index.php
+├── resources/
+│   ├── views/
+│   │   └── home.blade.php      # View utama dengan peta interaktif
+│   ├── css/
+│   │   └── app.css             # File CSS utama
+│   └── js/
+│       └── app.js               # File JavaScript utama
+├── routes/
+│   └── web.php                  # Route definitions
+├── .env                         # Environment configuration (jangan di-commit!)
+├── .env.example                 # Contoh file environment
+├── composer.json                # PHP dependencies
+├── package.json                 # JavaScript dependencies
+├── vite.config.js              # Konfigurasi Vite
+└── README.md                    # File ini
+```
+
+## 🗺️ Daftar Provinsi yang Tersedia
+
+Aplikasi ini sudah termasuk batas wilayah untuk provinsi berikut:
+
+1. ✅ **Banten** (8 kota/kabupaten)
+2. ✅ **Jakarta** (6 kota/kabupaten)
+3. ✅ **Jawa Barat** (27 kota/kabupaten)
+4. ✅ **Jawa Tengah** (36 kota/kabupaten)
+5. ✅ **Jawa Timur** (38 kota/kabupaten)
+6. ✅ **Yogyakarta** (5 kota/kabupaten)
+7. ✅ **Bali** (9 kota/kabupaten)
+8. ✅ **Nusa Tenggara Barat** (10 kota/kabupaten)
+9. ✅ **Nusa Tenggara Timur** (21 kota/kabupaten)
+10. ✅ **Papua** (29 kota/kabupaten)
+11. ✅ **Papua Barat** (11 kota/kabupaten)
+12. ✅ **Aceh** (23 kota/kabupaten)
+13. ✅ **Bangka Belitung** (7 kota/kabupaten)
+14. ✅ **Bengkulu** (10 kota/kabupaten)
+15. ✅ **Gorontalo** (7 kota/kabupaten)
+16. ✅ **Jambi** (11 kota/kabupaten)
+17. ✅ **Kalimantan Barat** (14 kota/kabupaten)
+18. ✅ **Kalimantan Selatan** (13 kota/kabupaten)
+19. ✅ **Kalimantan Tengah** (14 kota/kabupaten)
+20. ✅ **Kalimantan Timur** (9 kota/kabupaten)
+21. ✅ **Kalimantan Utara** (5 kota/kabupaten)
+22. ✅ **Kepulauan Riau** (7 kota/kabupaten)
+23. ✅ **Lampung** (14 kota/kabupaten)
+24. ✅ **Maluku** (11 kota/kabupaten)
+
+**Total: 24 provinsi dengan lebih dari 350 kota/kabupaten** 🎉
+
+> **Catatan**: Provinsi lainnya masih dalam pengembangan. Kontribusi untuk menambah provinsi lainnya sangat diterima!
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Jika kamu ingin menambahkan fitur atau memperbaiki bug:
+
+1. **Fork** repository ini
+2. **Buat branch** baru (`git checkout -b fitur/namafitur`)
+3. **Commit** perubahan kamu (`git commit -m 'Menambah fitur baru'`)
+4. **Push** ke branch (`git push origin fitur/namafitur`)
+5. **Buat Pull Request**
+
+### Prioritas Pengembangan
+- [ ] Menambahkan provinsi yang belum ada (Sulawesi, Sumatra lainnya, dll)
+- [ ] Optimasi performa loading GeoJSON
+- [ ] Menambahkan fitur export peta
+- [ ] Menambahkan legend untuk warna provinsi
+- [ ] Dark mode theme
+- [ ] Fitur pencarian yang lebih advanced
+
+## 👨‍💻 Tentang Pembuat
+
+**Edi Suherlan**
+
+- 📧 Email: [edisuherlan@gmail.com](mailto:edisuherlan@gmail.com)
+- 🌐 Website: [audhighasu.com](https://audhighasu.com)
+- 💻 GitHub: [@edisuherlan](https://github.com/edisuherlan)
+
+Aplikasi ini dibuat dengan ❤️ menggunakan Laravel 12, Leaflet.js, dan OpenStreetMap.
+
+## 📄 Lisensi
+
+Project ini menggunakan lisensi [MIT License](LICENSE). Artinya kamu bebas untuk:
+- ✅ Menggunakan project ini untuk keperluan komersial
+- ✅ Memodifikasi sesuai kebutuhan
+- ✅ Mendistribusikan
+- ✅ Menggunakan secara private
+
+Dengan catatan tetap mencantumkan credit kepada pembuat asli.
+
+## 🙏 Terima Kasih
+
+Terima Kasih sudah menggunakan aplikasi ini! Jika aplikasi ini membantu kamu, jangan lupa:
+
+- ⭐ **Star** repository ini di GitHub
+- 🐛 **Report** bug jika menemukan masalah
+- 💡 **Suggest** fitur baru yang ingin ditambahkan
+- 📢 **Share** ke teman-teman yang mungkin membutuhkan
+
+---
+
+**Happy Mapping! 🗺️✨**
