@@ -1757,10 +1757,17 @@
                         }).addTo(map);
 
                         // Load and display all Papua kota/kabupaten boundaries
+                        // Hanya kabupaten/kota yang tetap berada di Provinsi Papua (setelah pemekaran)
                         const papuaKota = [
-                            'Asmat', 'Biak Numfor', 'Boven Digoel', 'Deiyai', 'Dogiyai', 'Intan Jaya', 'Jayapura', 'Jayawijaya', 'Keerom', 'Kepulauan Yapen',
-                            'Kota Jayapura', 'Lanny Jaya', 'Mamberamo Raya', 'Mamberamo Tengah', 'Mappi', 'Merauke', 'Mimika', 'Nabire', 'Nduga', 'Paniai',
-                            'Pegunungan Bintang', 'Puncak', 'Puncak Jaya', 'Sarmi', 'Supiori', 'Tolikara', 'Waropen', 'Yahukimo', 'Yalimo'
+                            'Biak Numfor',
+                            'Jayapura',
+                            'Keerom',
+                            'Kepulauan Yapen',
+                            'Kota Jayapura',
+                            'Mamberamo Raya',
+                            'Sarmi',
+                            'Supiori',
+                            'Waropen'
                         ];
 
                         // Warna slate/gray untuk Papua (konsisten)
@@ -1898,8 +1905,13 @@
                         }).addTo(map);
 
                         // Load and display all Papua Barat kota/kabupaten boundaries
+                        // Hanya kabupaten/kota yang tetap berada di Provinsi Papua Barat (setelah pemekaran)
                         const papuaBaratKota = [
-                            'Fakfak', 'Kaimana', 'Kota Sorong', 'Manokwari', 'Maybrat', 'Raja Ampat', 'Sorong', 'Sorong Selatan', 'Tambrauw', 'Teluk Bintuni', 'Teluk Wondama'
+                            'Fakfak',
+                            'Kaimana',
+                            'Manokwari',
+                            'Teluk Bintuni',
+                            'Teluk Wondama'
                         ];
 
                         // Warna cyan/sky blue untuk Papua Barat (konsisten)
