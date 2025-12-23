@@ -371,12 +371,15 @@
                 let malukuUtaraLayer = null;
                 let malukuUtaraKotaLayers = [];
                 let malukuUtaraKotaLoadedCount = 0;
+                let riauLayer = null;
+                let riauKotaLayers = [];
+                let riauKotaLoadedCount = 0;
                 
                 // Function to fit bounds when all layers are loaded
                 function fitAllBounds() {
-                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9; // Banten + Jakarta + Jawa Barat + Jawa Tengah + Jawa Timur + Yogyakarta + Bali + NTB + NTT + Papua + Papua Barat + Aceh + Bangka Belitung + Bengkulu + Gorontalo + Jambi + Kalimantan Barat + Kalimantan Selatan + Kalimantan Tengah + Kalimantan Timur + Kalimantan Utara + Kepulauan Riau + Lampung + Maluku + Maluku Utara
-                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount;
-                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer;
+                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9 + 12; // Banten + Jakarta + Jawa Barat + Jawa Tengah + Jawa Timur + Yogyakarta + Bali + NTB + NTT + Papua + Papua Barat + Aceh + Bangka Belitung + Bengkulu + Gorontalo + Jambi + Kalimantan Barat + Kalimantan Selatan + Kalimantan Tengah + Kalimantan Timur + Kalimantan Utara + Kepulauan Riau + Lampung + Maluku + Maluku Utara + Riau
+                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount + riauKotaLoadedCount;
+                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer && riauLayer;
                     
                     if (totalLoaded === totalExpected && allLayersReady) {
                         const allLayers = new L.featureGroup([
@@ -405,6 +408,7 @@
                             lampungLayer,
                             malukuLayer,
                             malukuUtaraLayer,
+                            riauLayer,
                             ...kabupatenLayers, 
                             ...jakartaKotaLayers,
                             ...jawaBaratKotaLayers,
@@ -429,11 +433,12 @@
                             ...kepulauanRiauKotaLayers,
                             ...lampungKotaLayers,
                             ...malukuKotaLayers,
-                            ...malukuUtaraKotaLayers
+                            ...malukuUtaraKotaLayers,
+                            ...riauKotaLayers
                         ]);
                         map.fitBounds(allLayers.getBounds(), { padding: [50, 50] });
-                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length;
-                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, Yogyakarta, Bali, NTB, NTT, Papua, Papua Barat, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku & Malut<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
+                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length + riauKotaLayers.length;
+                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, Yogyakarta, Bali, NTB, NTT, Papua, Papua Barat, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku, Malut & Riau<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
                     }
                 }
 
@@ -3943,6 +3948,158 @@
                     })
                     .catch(error => {
                         console.error('Error loading Maluku Utara GeoJSON:', error);
+                    });
+
+                // Load and display Riau boundary
+                fetch('/geojson/riau.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Riau style dengan warna emerald/green
+                        const riauBoundaryStyle = {
+                            fillColor: '#10b981',
+                            fillOpacity: 0.25,
+                            color: '#059669',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const riauHoverStyle = {
+                            fillColor: '#10b981',
+                            fillOpacity: 0.4,
+                            color: '#047857',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        riauLayer = L.geoJSON(data, {
+                            style: riauBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(riauHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Riau</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        riauLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        // Load and display all Riau kota/kabupaten boundaries
+                        const riauKota = [
+                            'Bengkalis',
+                            'Dumai',
+                            'Indragiri Hilir',
+                            'Indragiri Hulu',
+                            'Kampar',
+                            'Kepulauan Meranti',
+                            'Kuantan Singingi',
+                            'Pekanbaru',
+                            'Pelalawan',
+                            'Rokan Hilir',
+                            'Rokan Hulu',
+                            'Siak'
+                        ];
+
+                        // Warna emerald/green untuk Riau (konsisten)
+                        const riauColors = [
+                            { fill: '#d1fae5', stroke: '#10b981' }, // Light Emerald
+                            { fill: '#a7f3d0', stroke: '#059669' }, // Medium Emerald
+                            { fill: '#6ee7b7', stroke: '#047857' }, // Dark Emerald
+                            { fill: '#d1fae5', stroke: '#10b981' }, // Light Emerald
+                            { fill: '#a7f3d0', stroke: '#059669' }, // Medium Emerald
+                            { fill: '#6ee7b7', stroke: '#047857' }, // Dark Emerald
+                            { fill: '#d1fae5', stroke: '#10b981' }, // Light Emerald
+                            { fill: '#a7f3d0', stroke: '#059669' }, // Medium Emerald
+                            { fill: '#6ee7b7', stroke: '#047857' }, // Dark Emerald
+                            { fill: '#d1fae5', stroke: '#10b981' }, // Light Emerald
+                            { fill: '#a7f3d0', stroke: '#059669' }, // Medium Emerald
+                            { fill: '#6ee7b7', stroke: '#047857' }  // Dark Emerald
+                        ];
+
+                        riauKota.forEach((kota, index) => {
+                            const colorIndex = index % riauColors.length;
+                            const kotaStyle = {
+                                fillColor: riauColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: riauColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: riauColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: riauColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `riau_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        riauKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            // Get nama dari feature properties jika ada, atau gunakan nama kota
+                                            const namaKota = feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Riau</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    riauKotaLayers.push(kotaLayer);
+                                    riauKotaLoadedCount++;
+
+                                    // Check if all layers are loaded
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    riauKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Riau GeoJSON:', error);
                     });
 
                 // Initial view is set to Indonesia center, will be adjusted when all layers loaded
