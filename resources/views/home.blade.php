@@ -1735,44 +1735,24 @@
                         console.error('Error loading Nusa Tenggara Timur GeoJSON:', error);
                     });
 
-                // Load and display Papua boundary
+                // Load and display Papua boundary (legacy, disembunyikan agar tidak tumpang tindih dengan provinsi baru)
                 fetch('/geojson/papua.geojson')
                     .then(response => response.json())
                     .then(data => {
-                        // Papua style dengan warna slate/gray
+                        // Papua style di-set transparan (hanya untuk bounds, tidak tampil visual)
                         const papuaBoundaryStyle = {
-                            fillColor: '#64748b',
-                            fillOpacity: 0.25,
-                            color: '#475569',
-                            weight: 3,
-                            opacity: 0.8,
-                            dashArray: '10, 5'
-                        };
-
-                        const papuaHoverStyle = {
-                            fillColor: '#64748b',
-                            fillOpacity: 0.4,
-                            color: '#334155',
-                            weight: 4,
-                            opacity: 1
+                            fillColor: '#000000',
+                            fillOpacity: 0,
+                            color: '#000000',
+                            weight: 0,
+                            opacity: 0,
+                            dashArray: '0'
                         };
 
                         papuaLayer = L.geoJSON(data, {
                             style: papuaBoundaryStyle,
                             onEachFeature: function(feature, layer) {
-                                layer.on({
-                                    mouseover: function(e) {
-                                        const layer = e.target;
-                                        layer.setStyle(papuaHoverStyle);
-                                        layer.bindPopup(`<div class="text-center"><strong>Papua</strong><br>Batas Wilayah</div>`).openPopup();
-                                    },
-                                    mouseout: function(e) {
-                                        papuaLayer.resetStyle(e.target);
-                                    },
-                                    click: function(e) {
-                                        map.fitBounds(e.target.getBounds());
-                                    }
-                                });
+                                // tidak ada interaksi pada boundary lama
                             }
                         }).addTo(map);
 
@@ -1896,44 +1876,24 @@
                         console.error('Error loading Papua GeoJSON:', error);
                     });
 
-                // Load and display Papua Barat boundary
+                // Load and display Papua Barat boundary (legacy, disembunyikan agar tidak tumpang tindih dengan provinsi baru)
                 fetch('/geojson/papua_barat.geojson')
                     .then(response => response.json())
                     .then(data => {
-                        // Papua Barat style dengan warna cyan/sky blue
+                        // Papua Barat style di-set transparan (hanya untuk bounds, tidak tampil visual)
                         const papuaBaratBoundaryStyle = {
-                            fillColor: '#06b6d4',
-                            fillOpacity: 0.25,
-                            color: '#0891b2',
-                            weight: 3,
-                            opacity: 0.8,
-                            dashArray: '10, 5'
-                        };
-
-                        const papuaBaratHoverStyle = {
-                            fillColor: '#06b6d4',
-                            fillOpacity: 0.4,
-                            color: '#0e7490',
-                            weight: 4,
-                            opacity: 1
+                            fillColor: '#000000',
+                            fillOpacity: 0,
+                            color: '#000000',
+                            weight: 0,
+                            opacity: 0,
+                            dashArray: '0'
                         };
 
                         papuaBaratLayer = L.geoJSON(data, {
                             style: papuaBaratBoundaryStyle,
                             onEachFeature: function(feature, layer) {
-                                layer.on({
-                                    mouseover: function(e) {
-                                        const layer = e.target;
-                                        layer.setStyle(papuaBaratHoverStyle);
-                                        layer.bindPopup(`<div class="text-center"><strong>Papua Barat</strong><br>Batas Wilayah</div>`).openPopup();
-                                    },
-                                    mouseout: function(e) {
-                                        papuaBaratLayer.resetStyle(e.target);
-                                    },
-                                    click: function(e) {
-                                        map.fitBounds(e.target.getBounds());
-                                    }
-                                });
+                                // tidak ada interaksi pada boundary lama
                             }
                         }).addTo(map);
 
