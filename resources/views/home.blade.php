@@ -398,12 +398,24 @@
                 let sulawesiTengahLayer = null;
                 let sulawesiTengahKotaLayers = [];
                 let sulawesiTengahKotaLoadedCount = 0;
+                let papuaTengahLayer = null;
+                let papuaTengahKotaLayers = [];
+                let papuaTengahKotaLoadedCount = 0;
+                let papuaSelatanLayer = null;
+                let papuaSelatanKotaLayers = [];
+                let papuaSelatanKotaLoadedCount = 0;
+                let papuaPegununganLayer = null;
+                let papuaPegununganKotaLayers = [];
+                let papuaPegununganKotaLoadedCount = 0;
+                let papuaBaratDayaLayer = null;
+                let papuaBaratDayaKotaLayers = [];
+                let papuaBaratDayaKotaLoadedCount = 0;
                 
                 // Function to fit bounds when all layers are loaded
                 function fitAllBounds() {
-                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9 + 12 + 5 + 20 + 15 + 34 + 15 + 12 + 24 + 11; // ... + Riau + Sulawesi Barat (5) + Sumatera Barat (20) + Sumatera Selatan (15) + Sumatera Utara (34) + Sulawesi Utara (15) + Sulawesi Tenggara (12) + Sulawesi Selatan (24) + Sulawesi Tengah (11)
-                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount + riauKotaLoadedCount + sulawesiBaratKotaLoadedCount + sumateraBaratKotaLoadedCount + sumateraSelatanKotaLoadedCount + sumateraUtaraKotaLoadedCount + sulawesiUtaraKotaLoadedCount + sulawesiTenggaraKotaLoadedCount + sulawesiSelatanKotaLoadedCount + sulawesiTengahKotaLoadedCount;
-                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer && riauLayer && sulawesiBaratLayer && sumateraBaratLayer && sumateraSelatanLayer && sumateraUtaraLayer && sulawesiUtaraLayer && sulawesiTenggaraLayer && sulawesiSelatanLayer && sulawesiTengahLayer;
+                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9 + 12 + 5 + 20 + 15 + 34 + 15 + 12 + 24 + 11 + 8 + 4 + 8 + 6; // ... + Riau + Sulawesi Barat (5) + Sumatera Barat (20) + Sumatera Selatan (15) + Sumatera Utara (34) + Sulawesi Utara (15) + Sulawesi Tenggara (12) + Sulawesi Selatan (24) + Sulawesi Tengah (11) + Papua Tengah (8) + Papua Selatan (4) + Papua Pegunungan (8) + Papua Barat Daya (6)
+                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount + riauKotaLoadedCount + sulawesiBaratKotaLoadedCount + sumateraBaratKotaLoadedCount + sumateraSelatanKotaLoadedCount + sumateraUtaraKotaLoadedCount + sulawesiUtaraKotaLoadedCount + sulawesiTenggaraKotaLoadedCount + sulawesiSelatanKotaLoadedCount + sulawesiTengahKotaLoadedCount + papuaTengahKotaLoadedCount + papuaSelatanKotaLoadedCount + papuaPegununganKotaLoadedCount + papuaBaratDayaKotaLoadedCount;
+                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer && riauLayer && sulawesiBaratLayer && sumateraBaratLayer && sumateraSelatanLayer && sumateraUtaraLayer && sulawesiUtaraLayer && sulawesiTenggaraLayer && sulawesiSelatanLayer && sulawesiTengahLayer && papuaTengahLayer && papuaSelatanLayer && papuaPegununganLayer && papuaBaratDayaLayer;
                     
                     if (totalLoaded === totalExpected && allLayersReady) {
                         const allLayers = new L.featureGroup([
@@ -441,6 +453,10 @@
                             sulawesiTenggaraLayer,
                             sulawesiSelatanLayer,
                             sulawesiTengahLayer,
+                            papuaTengahLayer,
+                            papuaSelatanLayer,
+                            papuaPegununganLayer,
+                            papuaBaratDayaLayer,
                             ...kabupatenLayers, 
                             ...jakartaKotaLayers,
                             ...jawaBaratKotaLayers,
@@ -474,11 +490,15 @@
                             ...sulawesiUtaraKotaLayers,
                             ...sulawesiTenggaraKotaLayers,
                             ...sulawesiSelatanKotaLayers,
-                            ...sulawesiTengahKotaLayers
+                            ...sulawesiTengahKotaLayers,
+                            ...papuaTengahKotaLayers,
+                            ...papuaSelatanKotaLayers,
+                            ...papuaPegununganKotaLayers,
+                            ...papuaBaratDayaKotaLayers
                         ]);
                         map.fitBounds(allLayers.getBounds(), { padding: [50, 50] });
-                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length + riauKotaLayers.length + sulawesiBaratKotaLayers.length + sumateraBaratKotaLayers.length + sumateraSelatanKotaLayers.length + sumateraUtaraKotaLayers.length + sulawesiUtaraKotaLayers.length + sulawesiTenggaraKotaLayers.length + sulawesiSelatanKotaLayers.length + sulawesiTengahKotaLayers.length;
-                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, Yogyakarta, Bali, NTB, NTT, Papua, Papua Barat, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku, Malut, Riau, Sulbar, Sumbar, Sumsel, Sumut, Sulut, Sultra, Sulsel & Sulteng<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
+                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length + riauKotaLayers.length + sulawesiBaratKotaLayers.length + sumateraBaratKotaLayers.length + sumateraSelatanKotaLayers.length + sumateraUtaraKotaLayers.length + sulawesiUtaraKotaLayers.length + sulawesiTenggaraKotaLayers.length + sulawesiSelatanKotaLayers.length + sulawesiTengahKotaLayers.length + papuaTengahKotaLayers.length + papuaSelatanKotaLayers.length + papuaPegununganKotaLayers.length + papuaBaratDayaKotaLayers.length;
+                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, DIY, Bali, NTB, NTT, Papua, Papua Barat, Papua Tengah, Papua Selatan, Papua Pegunungan, Papua Barat Daya, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku, Malut, Riau, Sulbar, Sumbar, Sumsel, Sumut, Sulut, Sultra, Sulsel & Sulteng<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
                     }
                 }
 
@@ -5346,6 +5366,535 @@
                     })
                     .catch(error => {
                         console.error('Error loading Sulawesi Tengah GeoJSON:', error);
+                    });
+
+                // Load and display Papua Tengah boundary
+                fetch('/geojson/papua_tengah.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        const papuaTengahBoundaryStyle = {
+                            fillColor: '#22c55e',
+                            fillOpacity: 0.25,
+                            color: '#16a34a',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const papuaTengahHoverStyle = {
+                            fillColor: '#22c55e',
+                            fillOpacity: 0.4,
+                            color: '#15803d',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        papuaTengahLayer = L.geoJSON(data, {
+                            style: papuaTengahBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(papuaTengahHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Papua Tengah</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        papuaTengahLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        const papuaTengahKota = [
+                            'Deiyai',
+                            'Dogiyai',
+                            'Intan Jaya',
+                            'Mimika',
+                            'Nabire',
+                            'Paniai',
+                            'Puncak',
+                            'Puncak Jaya'
+                        ];
+
+                        const papuaTengahColors = [
+                            { fill: '#bbf7d0', stroke: '#22c55e' },
+                            { fill: '#a7f3d0', stroke: '#16a34a' },
+                            { fill: '#6ee7b7', stroke: '#059669' },
+                            { fill: '#bef264', stroke: '#3f6212' }
+                        ];
+
+                        papuaTengahKota.forEach((kota, index) => {
+                            const colorIndex = index % papuaTengahColors.length;
+                            const kotaStyle = {
+                                fillColor: papuaTengahColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: papuaTengahColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: papuaTengahColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: papuaTengahColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `papua_tengah_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        papuaTengahKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            const namaKota = feature.properties?.WADMKK || feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Papua Tengah</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    papuaTengahKotaLayers.push(kotaLayer);
+                                    papuaTengahKotaLoadedCount++;
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    papuaTengahKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Papua Tengah GeoJSON:', error);
+                    });
+
+                // Load and display Papua Selatan boundary
+                fetch('/geojson/papua_selatan.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        const papuaSelatanBoundaryStyle = {
+                            fillColor: '#f97316',
+                            fillOpacity: 0.25,
+                            color: '#ea580c',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const papuaSelatanHoverStyle = {
+                            fillColor: '#f97316',
+                            fillOpacity: 0.4,
+                            color: '#c2410c',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        papuaSelatanLayer = L.geoJSON(data, {
+                            style: papuaSelatanBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(papuaSelatanHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Papua Selatan</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        papuaSelatanLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        const papuaSelatanKota = [
+                            'Asmat',
+                            'Boven Digoel',
+                            'Mappi',
+                            'Merauke'
+                        ];
+
+                        const papuaSelatanColors = [
+                            { fill: '#fed7aa', stroke: '#f97316' },
+                            { fill: '#ffedd5', stroke: '#ea580c' },
+                            { fill: '#fee2e2', stroke: '#f97373' }
+                        ];
+
+                        papuaSelatanKota.forEach((kota, index) => {
+                            const colorIndex = index % papuaSelatanColors.length;
+                            const kotaStyle = {
+                                fillColor: papuaSelatanColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: papuaSelatanColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: papuaSelatanColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: papuaSelatanColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `papua_selatan_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        papuaSelatanKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            const namaKota = feature.properties?.WADMKK || feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Papua Selatan</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    papuaSelatanKotaLayers.push(kotaLayer);
+                                    papuaSelatanKotaLoadedCount++;
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    papuaSelatanKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Papua Selatan GeoJSON:', error);
+                    });
+
+                // Load and display Papua Pegunungan boundary
+                fetch('/geojson/papua_pegunungan.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        const papuaPegununganBoundaryStyle = {
+                            fillColor: '#6366f1',
+                            fillOpacity: 0.25,
+                            color: '#4f46e5',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const papuaPegununganHoverStyle = {
+                            fillColor: '#6366f1',
+                            fillOpacity: 0.4,
+                            color: '#4338ca',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        papuaPegununganLayer = L.geoJSON(data, {
+                            style: papuaPegununganBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(papuaPegununganHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Papua Pegunungan</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        papuaPegununganLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        const papuaPegununganKota = [
+                            'Jayawijaya',
+                            'Lanny Jaya',
+                            'Mamberamo Tengah',
+                            'Nduga',
+                            'Pegunungan Bintang',
+                            'Tolikara',
+                            'Yahukimo',
+                            'Yalimo'
+                        ];
+
+                        const papuaPegununganColors = [
+                            { fill: '#e0e7ff', stroke: '#6366f1' },
+                            { fill: '#c7d2fe', stroke: '#4f46e5' },
+                            { fill: '#a5b4fc', stroke: '#4338ca' },
+                            { fill: '#bfdbfe', stroke: '#2563eb' }
+                        ];
+
+                        papuaPegununganKota.forEach((kota, index) => {
+                            const colorIndex = index % papuaPegununganColors.length;
+                            const kotaStyle = {
+                                fillColor: papuaPegununganColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: papuaPegununganColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: papuaPegununganColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: papuaPegununganColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `papua_pegunungan_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        papuaPegununganKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            const namaKota = feature.properties?.WADMKK || feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Papua Pegunungan</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    papuaPegununganKotaLayers.push(kotaLayer);
+                                    papuaPegununganKotaLoadedCount++;
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    papuaPegununganKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Papua Pegunungan GeoJSON:', error);
+                    });
+
+                // Load and display Papua Barat Daya boundary
+                fetch('/geojson/papua_barat_daya.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        const papuaBaratDayaBoundaryStyle = {
+                            fillColor: '#06b6d4',
+                            fillOpacity: 0.25,
+                            color: '#0891b2',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const papuaBaratDayaHoverStyle = {
+                            fillColor: '#06b6d4',
+                            fillOpacity: 0.4,
+                            color: '#0e7490',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        papuaBaratDayaLayer = L.geoJSON(data, {
+                            style: papuaBaratDayaBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(papuaBaratDayaHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Papua Barat Daya</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        papuaBaratDayaLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        const papuaBaratDayaKota = [
+                            'Kota Sorong',
+                            'Maybrat',
+                            'Raja Ampat',
+                            'Sorong',
+                            'Sorong Selatan',
+                            'Tambrauw'
+                        ];
+
+                        const papuaBaratDayaColors = [
+                            { fill: '#cffafe', stroke: '#06b6d4' },
+                            { fill: '#bae6fd', stroke: '#0ea5e9' },
+                            { fill: '#e0f2fe', stroke: '#0284c7' },
+                            { fill: '#ddd6fe', stroke: '#6366f1' }
+                        ];
+
+                        papuaBaratDayaKota.forEach((kota, index) => {
+                            const colorIndex = index % papuaBaratDayaColors.length;
+                            const kotaStyle = {
+                                fillColor: papuaBaratDayaColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: papuaBaratDayaColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: papuaBaratDayaColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: papuaBaratDayaColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `papua_barat_daya_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        papuaBaratDayaKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            const namaKota = feature.properties?.WADMKK || feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Papua Barat Daya</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    papuaBaratDayaKotaLayers.push(kotaLayer);
+                                    papuaBaratDayaKotaLoadedCount++;
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    papuaBaratDayaKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Papua Barat Daya GeoJSON:', error);
                     });
 
                 // Initial view is set to Indonesia center, will be adjusted when all layers loaded
