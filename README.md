@@ -298,8 +298,9 @@ Aplikasi ini sudah termasuk batas wilayah untuk provinsi berikut:
 24. ✅ **Maluku** (11 kota/kabupaten)
 25. ✅ **Maluku Utara** (9 kota/kabupaten)
 26. ✅ **Riau** (12 kota/kabupaten)
+27. ✅ **Sulawesi Barat** (5 kota/kabupaten)
 
-**Total: 26 provinsi dengan lebih dari 370 kota/kabupaten** 🎉
+**Total: 27 provinsi dengan lebih dari 380 kota/kabupaten** 🎉
 
 > **Catatan**: Provinsi lainnya masih dalam pengembangan. Kontribusi untuk menambah provinsi lainnya sangat diterima!
 
