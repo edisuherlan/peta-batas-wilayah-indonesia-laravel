@@ -389,12 +389,15 @@
                 let sulawesiUtaraLayer = null;
                 let sulawesiUtaraKotaLayers = [];
                 let sulawesiUtaraKotaLoadedCount = 0;
+                let sulawesiTenggaraLayer = null;
+                let sulawesiTenggaraKotaLayers = [];
+                let sulawesiTenggaraKotaLoadedCount = 0;
                 
                 // Function to fit bounds when all layers are loaded
                 function fitAllBounds() {
-                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9 + 12 + 5 + 20 + 15 + 34 + 15; // ... + Riau + Sulawesi Barat (5) + Sumatera Barat (20) + Sumatera Selatan (15) + Sumatera Utara (34) + Sulawesi Utara (15)
-                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount + riauKotaLoadedCount + sulawesiBaratKotaLoadedCount + sumateraBaratKotaLoadedCount + sumateraSelatanKotaLoadedCount + sumateraUtaraKotaLoadedCount + sulawesiUtaraKotaLoadedCount;
-                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer && riauLayer && sulawesiBaratLayer && sumateraBaratLayer && sumateraSelatanLayer && sumateraUtaraLayer && sulawesiUtaraLayer;
+                    const totalExpected = kabupatenKota.length + 6 + 27 + 36 + 38 + 5 + 9 + 10 + 21 + 29 + 11 + 23 + 7 + 10 + 7 + 11 + 14 + 13 + 14 + 9 + 5 + 7 + 14 + 11 + 9 + 12 + 5 + 20 + 15 + 34 + 15 + 12; // ... + Riau + Sulawesi Barat (5) + Sumatera Barat (20) + Sumatera Selatan (15) + Sumatera Utara (34) + Sulawesi Utara (15) + Sulawesi Tenggara (12)
+                    const totalLoaded = loadedCount + jakartaKotaLoadedCount + jawaBaratKotaLoadedCount + jawaTengahKotaLoadedCount + jawaTimurKotaLoadedCount + yogyakartaKotaLoadedCount + baliKotaLoadedCount + ntbKotaLoadedCount + nttKotaLoadedCount + papuaKotaLoadedCount + papuaBaratKotaLoadedCount + acehKotaLoadedCount + bangkaBelitungKotaLoadedCount + bengkuluKotaLoadedCount + gorontaloKotaLoadedCount + jambiKotaLoadedCount + kalimantanBaratKotaLoadedCount + kalimantanSelatanKotaLoadedCount + kalimantanTengahKotaLoadedCount + kalimantanTimurKotaLoadedCount + kalimantanUtaraKotaLoadedCount + kepulauanRiauKotaLoadedCount + lampungKotaLoadedCount + malukuKotaLoadedCount + malukuUtaraKotaLoadedCount + riauKotaLoadedCount + sulawesiBaratKotaLoadedCount + sumateraBaratKotaLoadedCount + sumateraSelatanKotaLoadedCount + sumateraUtaraKotaLoadedCount + sulawesiUtaraKotaLoadedCount + sulawesiTenggaraKotaLoadedCount;
+                    const allLayersReady = bantenLayer && jakartaLayer && jawaBaratLayer && jawaTengahLayer && jawaTimurLayer && yogyakartaLayer && baliLayer && ntbLayer && nttLayer && papuaLayer && papuaBaratLayer && acehLayer && bangkaBelitungLayer && bengkuluLayer && gorontaloLayer && jambiLayer && kalimantanBaratLayer && kalimantanSelatanLayer && kalimantanTengahLayer && kalimantanTimurLayer && kalimantanUtaraLayer && kepulauanRiauLayer && lampungLayer && malukuLayer && malukuUtaraLayer && riauLayer && sulawesiBaratLayer && sumateraBaratLayer && sumateraSelatanLayer && sumateraUtaraLayer && sulawesiUtaraLayer && sulawesiTenggaraLayer;
                     
                     if (totalLoaded === totalExpected && allLayersReady) {
                         const allLayers = new L.featureGroup([
@@ -429,6 +432,7 @@
                             sumateraSelatanLayer,
                             sumateraUtaraLayer,
                             sulawesiUtaraLayer,
+                            sulawesiTenggaraLayer,
                             ...kabupatenLayers, 
                             ...jakartaKotaLayers,
                             ...jawaBaratKotaLayers,
@@ -459,11 +463,12 @@
                             ...sumateraBaratKotaLayers,
                             ...sumateraSelatanKotaLayers,
                             ...sumateraUtaraKotaLayers,
-                            ...sulawesiUtaraKotaLayers
+                            ...sulawesiUtaraKotaLayers,
+                            ...sulawesiTenggaraKotaLayers
                         ]);
                         map.fitBounds(allLayers.getBounds(), { padding: [50, 50] });
-                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length + riauKotaLayers.length + sulawesiBaratKotaLayers.length + sumateraBaratKotaLayers.length + sumateraSelatanKotaLayers.length + sumateraUtaraKotaLayers.length + sulawesiUtaraKotaLayers.length;
-                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, Yogyakarta, Bali, NTB, NTT, Papua, Papua Barat, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku, Malut, Riau, Sulbar, Sumbar, Sumsel, Sumut & Sulut<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
+                        const totalKota = kabupatenLayers.length + jakartaKotaLayers.length + jawaBaratKotaLayers.length + jawaTengahKotaLayers.length + jawaTimurKotaLayers.length + yogyakartaKotaLayers.length + baliKotaLayers.length + ntbKotaLayers.length + nttKotaLayers.length + papuaKotaLayers.length + papuaBaratKotaLayers.length + acehKotaLayers.length + bangkaBelitungKotaLayers.length + bengkuluKotaLayers.length + gorontaloKotaLayers.length + jambiKotaLayers.length + kalimantanBaratKotaLayers.length + kalimantanSelatanKotaLayers.length + kalimantanTengahKotaLayers.length + kalimantanTimurKotaLayers.length + kalimantanUtaraKotaLayers.length + kepulauanRiauKotaLayers.length + lampungKotaLayers.length + malukuKotaLayers.length + malukuUtaraKotaLayers.length + riauKotaLayers.length + sulawesiBaratKotaLayers.length + sumateraBaratKotaLayers.length + sumateraSelatanKotaLayers.length + sumateraUtaraKotaLayers.length + sulawesiUtaraKotaLayers.length + sulawesiTenggaraKotaLayers.length;
+                        document.getElementById('locationInfo').innerHTML = `Banten, Jakarta, Jabar, Jateng, Jatim, Yogyakarta, Bali, NTB, NTT, Papua, Papua Barat, Aceh, Babel, Bengkulu, Gorontalo, Jambi, Kalbar, Kalsel, Kalteng, Kaltim, Kalut, Kepri, Lampung, Maluku, Malut, Riau, Sulbar, Sumbar, Sumsel, Sumut, Sulut & Sultra<br><span class=\"text-xs text-green-600 font-medium\">✓ ${totalKota} Kabupaten/Kota dimuat</span>`;
                     }
                 }
 
@@ -4882,6 +4887,152 @@
                     })
                     .catch(error => {
                         console.error('Error loading Sulawesi Utara GeoJSON:', error);
+                    });
+
+                // Load and display Sulawesi Tenggara boundary
+                fetch('/geojson/sulawesi_tenggara.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Sulawesi Tenggara style dengan warna teal/emerald lembut
+                        const sulawesiTenggaraBoundaryStyle = {
+                            fillColor: '#14b8a6',
+                            fillOpacity: 0.25,
+                            color: '#0d9488',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '10, 5'
+                        };
+
+                        const sulawesiTenggaraHoverStyle = {
+                            fillColor: '#14b8a6',
+                            fillOpacity: 0.4,
+                            color: '#0f766e',
+                            weight: 4,
+                            opacity: 1
+                        };
+
+                        sulawesiTenggaraLayer = L.geoJSON(data, {
+                            style: sulawesiTenggaraBoundaryStyle,
+                            onEachFeature: function(feature, layer) {
+                                layer.on({
+                                    mouseover: function(e) {
+                                        const layer = e.target;
+                                        layer.setStyle(sulawesiTenggaraHoverStyle);
+                                        layer.bindPopup(`<div class="text-center"><strong>Sulawesi Tenggara</strong><br>Batas Wilayah</div>`).openPopup();
+                                    },
+                                    mouseout: function(e) {
+                                        sulawesiTenggaraLayer.resetStyle(e.target);
+                                    },
+                                    click: function(e) {
+                                        map.fitBounds(e.target.getBounds());
+                                    }
+                                });
+                            }
+                        }).addTo(map);
+
+                        // Load and display all Sulawesi Tenggara kota/kabupaten boundaries
+                        const sulawesiTenggaraKota = [
+                            'Bau-Bau',
+                            'Bombana',
+                            'Buton',
+                            'Buton Utara',
+                            'Kendari',
+                            'Kolaka',
+                            'Kolaka Utara',
+                            'Konawe',
+                            'Konawe Selatan',
+                            'Konawe Utara',
+                            'Muna',
+                            'Wakatobi'
+                        ];
+
+                        // Warna teal/emerald pastel untuk Sulawesi Tenggara
+                        const sulawesiTenggaraColors = [
+                            { fill: '#ccfbf1', stroke: '#14b8a6' }, // Light Teal
+                            { fill: '#99f6e4', stroke: '#0d9488' }, // Medium Teal
+                            { fill: '#5eead4', stroke: '#0f766e' }, // Dark Teal
+                            { fill: '#a7f3d0', stroke: '#10b981' }, // Emerald
+                            { fill: '#6ee7b7', stroke: '#059669' }, // Emerald darker
+                            { fill: '#d1fae5', stroke: '#10b981' }  // Light Emerald
+                        ];
+
+                        sulawesiTenggaraKota.forEach((kota, index) => {
+                            const colorIndex = index % sulawesiTenggaraColors.length;
+                            const kotaStyle = {
+                                fillColor: sulawesiTenggaraColors[colorIndex].fill,
+                                fillOpacity: 0.3,
+                                color: sulawesiTenggaraColors[colorIndex].stroke,
+                                weight: 2.5,
+                                opacity: 0.8,
+                                dashArray: '8, 4'
+                            };
+
+                            const kotaHoverStyle = {
+                                fillColor: sulawesiTenggaraColors[colorIndex].fill,
+                                fillOpacity: 0.5,
+                                color: sulawesiTenggaraColors[colorIndex].stroke,
+                                weight: 4,
+                                opacity: 1,
+                                dashArray: '0'
+                            };
+
+                            const fileName = `sultra_${kota.replace(/ /g, '_')}.geojson`;
+                            fetch(`/geojson/${fileName}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (!data || !data.features || data.features.length === 0) {
+                                        console.warn(`Empty or invalid GeoJSON for ${kota} (${fileName})`);
+                                        sulawesiTenggaraKotaLoadedCount++;
+                                        fitAllBounds();
+                                        return;
+                                    }
+                                    
+                                    const kotaLayer = L.geoJSON(data, {
+                                        style: kotaStyle,
+                                        onEachFeature: function(feature, layer) {
+                                            // Get nama dari feature properties jika ada, atau gunakan nama kota
+                                            const namaKota = feature.properties?.NAME_2 || feature.properties?.name || kota;
+                                            layer.bindPopup(`<div class="text-center py-2"><strong class="text-lg">${namaKota}</strong><br><span class="text-sm text-gray-600">Sulawesi Tenggara</span></div>`, {
+                                                className: 'custom-popup'
+                                            });
+                                            
+                                            layer.on({
+                                                mouseover: function(e) {
+                                                    const layer = e.target;
+                                                    layer.setStyle(kotaHoverStyle);
+                                                    layer.openPopup();
+                                                },
+                                                mouseout: function(e) {
+                                                    kotaLayer.resetStyle(e.target);
+                                                    layer.closePopup();
+                                                },
+                                                click: function(e) {
+                                                    map.fitBounds(e.target.getBounds(), { padding: [80, 80], maxZoom: 11 });
+                                                }
+                                            });
+                                        }
+                                    }).addTo(map);
+
+                                    sulawesiTenggaraKotaLayers.push(kotaLayer);
+                                    sulawesiTenggaraKotaLoadedCount++;
+
+                                    // Check if all layers are loaded
+                                    fitAllBounds();
+                                })
+                                .catch(error => {
+                                    console.error(`Error loading ${kota} (${fileName}):`, error);
+                                    sulawesiTenggaraKotaLoadedCount++;
+                                    fitAllBounds();
+                                });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading Sulawesi Tenggara GeoJSON:', error);
                     });
 
                 // Initial view is set to Indonesia center, will be adjusted when all layers loaded
