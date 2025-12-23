@@ -304,8 +304,9 @@ Aplikasi ini sudah termasuk batas wilayah untuk provinsi berikut:
 30. ✅ **Sumatera Utara** (34 kota/kabupaten)
 31. ✅ **Sulawesi Utara** (15 kota/kabupaten)
 32. ✅ **Sulawesi Tenggara** (12 kota/kabupaten)
+33. ✅ **Sulawesi Selatan** (24 kota/kabupaten)
 
-**Total: 32 provinsi dengan lebih dari 475 kota/kabupaten** 🎉
+**Total: 33 provinsi dengan lebih dari 499 kota/kabupaten** 🎉
 
 > **Catatan**: Provinsi lainnya masih dalam pengembangan. Kontribusi untuk menambah provinsi lainnya sangat diterima!
 
