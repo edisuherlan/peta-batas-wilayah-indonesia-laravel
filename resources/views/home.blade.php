@@ -106,9 +106,9 @@
                     </h1>
                 </div>
                 <nav class="hidden md:flex items-center space-x-4">
-                    <a href="#" class="text-purple-600 hover:text-pink-500 transition-colors font-medium">Beranda</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-500 transition-colors">Tentang</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-500 transition-colors">Kontak</a>
+                    <a href="{{ route('home') }}" class="text-purple-600 hover:text-pink-500 transition-colors font-medium">Beranda</a>
+                    <a href="{{ route('tentang') }}" class="text-gray-600 hover:text-purple-500 transition-colors">Tentang</a>
+                    <a href="{{ route('kontak') }}" class="text-gray-600 hover:text-purple-500 transition-colors">Kontak</a>
                 </nav>
                 <button class="md:hidden p-2 text-purple-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
