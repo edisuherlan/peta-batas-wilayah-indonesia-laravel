@@ -1916,17 +1916,11 @@
 
                         // Warna cyan/sky blue untuk Papua Barat (konsisten)
                         const papuaBaratColors = [
-                            { fill: '#cffafe', stroke: '#06b6d4' }, // Light Cyan
-                            { fill: '#a5f3fc', stroke: '#0891b2' }, // Medium Cyan
-                            { fill: '#67e8f9', stroke: '#0e7490' }, // Dark Cyan
-                            { fill: '#cffafe', stroke: '#06b6d4' }, // Light Cyan
-                            { fill: '#a5f3fc', stroke: '#0891b2' }, // Medium Cyan
-                            { fill: '#67e8f9', stroke: '#0e7490' }, // Dark Cyan
-                            { fill: '#cffafe', stroke: '#06b6d4' }, // Light Cyan
-                            { fill: '#a5f3fc', stroke: '#0891b2' }, // Medium Cyan
-                            { fill: '#67e8f9', stroke: '#0e7490' }, // Dark Cyan
-                            { fill: '#cffafe', stroke: '#06b6d4' }, // Light Cyan
-                            { fill: '#a5f3fc', stroke: '#0891b2' }  // Medium Cyan
+                            { fill: '#fee2e2', stroke: '#f97373' }, // Light Red
+                            { fill: '#fecaca', stroke: '#ef4444' }, // Medium Red
+                            { fill: '#fca5a5', stroke: '#b91c1c' }, // Dark Red
+                            { fill: '#fecaca', stroke: '#ef4444' }, // Medium Red
+                            { fill: '#fee2e2', stroke: '#f97373' }  // Light Red
                         ];
 
                         papuaBaratKota.forEach((kota, index) => {
@@ -5787,10 +5781,10 @@
                         ];
 
                         const papuaBaratDayaColors = [
-                            { fill: '#cffafe', stroke: '#06b6d4' },
-                            { fill: '#bae6fd', stroke: '#0ea5e9' },
-                            { fill: '#e0f2fe', stroke: '#0284c7' },
-                            { fill: '#ddd6fe', stroke: '#6366f1' }
+                            { fill: '#ede9fe', stroke: '#8b5cf6' }, // Light Violet
+                            { fill: '#ddd6fe', stroke: '#7c3aed' }, // Medium Violet
+                            { fill: '#e9d5ff', stroke: '#a855f7' }, // Light Purple
+                            { fill: '#f5d0fe', stroke: '#d946ef' }  // Magenta
                         ];
 
                         papuaBaratDayaKota.forEach((kota, index) => {
