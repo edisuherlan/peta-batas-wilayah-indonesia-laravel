@@ -300,8 +300,9 @@ Aplikasi ini sudah termasuk batas wilayah untuk provinsi berikut:
 26. ✅ **Riau** (12 kota/kabupaten)
 27. ✅ **Sulawesi Barat** (5 kota/kabupaten)
 28. ✅ **Sumatera Barat** (20 kota/kabupaten)
+29. ✅ **Sumatera Selatan** (15 kota/kabupaten)
 
-**Total: 28 provinsi dengan lebih dari 400 kota/kabupaten** 🎉
+**Total: 29 provinsi dengan lebih dari 415 kota/kabupaten** 🎉
 
 > **Catatan**: Provinsi lainnya masih dalam pengembangan. Kontribusi untuk menambah provinsi lainnya sangat diterima!
 
