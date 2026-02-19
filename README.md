@@ -6,8 +6,13 @@ Aplikasi peta interaktif untuk menampilkan batas wilayah provinsi dan kota/kabup
 ![PHP](https://img.shields.io/badge/PHP-8.2+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
+## 📸 Screenshot
+
+![Screenshot Aplikasi Peta Batas Wilayah Indonesia](doc/Map-Application-Laravel-02-19-2026_11_11_AM.png)
+
 ## 📋 Daftar Isi
 
+- [Screenshot](#-screenshot)
 - [Tentang Project](#tentang-project)
 - [Fitur Utama](#fitur-utama)
 - [Teknologi yang Digunakan](#teknologi-yang-digunakan)
