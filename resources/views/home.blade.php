@@ -1925,6 +1925,9 @@
 
                         papuaBaratKota.forEach((kota, index) => {
                             const colorIndex = index % papuaBaratColors.length;
+
+                            // Semua kabupaten (termasuk Manokwari & Teluk Bintuni) sekarang
+                            // mengikuti batas terbaru dari dataset 38 provinsi (papua_barat_*.geojson).
                             const kotaStyle = {
                                 fillColor: papuaBaratColors[colorIndex].fill,
                                 fillOpacity: 0.3,

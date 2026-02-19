@@ -21,6 +21,7 @@ TARGET_PROVINCES = {
     "Papua Selatan": "papua_selatan",
     "Papua Pegunungan": "papua_pegunungan",
     "Papua Barat Daya": "papua_barat_daya",
+    "Papua Barat": "papua_barat",
 }
 
 
